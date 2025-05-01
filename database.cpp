@@ -43,4 +43,12 @@ int main() {
 
         cin >> action;
     }
+
+    if (action == 1) {
+        // Sign Up
+    }
+    else if (action == 2) {
+        // Log In
+    }
+
 }
