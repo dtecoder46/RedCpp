@@ -34,9 +34,9 @@ int main() {
 
     cin >> action;
 
-    // prompt validation
+    // prompt validation (cannot check for strings)
 
-    while (action < 1 or action > 2) {
+    while (action < 1 or action > 2) { // checks for inputs with non-existant options
         cout << "\nNot an option, try again\n\n";
 
         cout << "What do you want to do?\n1. Sign Up\n2. Log In\nAnswer: "; // prompts the user to sign up or log in
