@@ -26,11 +26,21 @@ int main() {
         
     */
 
-    string action;
+    int action;
 
     cout << "\nWelcome to the Basic Website!\n\n";
 
-    cout << "What do you want to do?\n1. Sign Up\n2. Log In\nAnswer: ";
+    cout << "What do you want to do?\n1. Sign Up\n2. Log In\nAnswer: "; // prompts the user to sign up or log in
 
     cin >> action;
+
+    // prompt validation
+
+    while (action < 1 or action > 2) {
+        cout << "\nNot an option, try again\n\n";
+
+        cout << "What do you want to do?\n1. Sign Up\n2. Log In\nAnswer: "; // prompts the user to sign up or log in
+
+        cin >> action;
+    }
 }
