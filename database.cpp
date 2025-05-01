@@ -25,4 +25,12 @@ int main() {
         If they match, give successful log in message
         
     */
+
+    string action;
+
+    cout << "Welcome to the Basic Website!\n";
+
+    cout << "What do you want to do?\n1. Sign Up\n2. Log In\n";
+
+    cin >> action;
 }
