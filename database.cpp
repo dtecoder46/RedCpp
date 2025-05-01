@@ -5,10 +5,24 @@ using namespace std;
 int main() {
     /* Algorithm
 
-    1. Ask for the user to input a phone model and a price
-    
-    2. Check that the phone model is a string and that the price is a number, prompt user until input is valid
+    1. Ask the user if they want to sign up or log in
 
-    3. 
+    2. If invalid input, re-prompt until valid
+
+    3. Sign up
+
+        Ask user for username and password
+        Encrypt the password
+        Store the username and password in a JSON file
+
+    4. Log in
+
+        Ask user for username and password
+        Retrieve data from JSON
+        Decrypt the password
+        Check if the usernames and passwords match
+        If they don't match, re-prompt until they match
+        If they match, give successful log in message
+        
     */
 }
