@@ -45,7 +45,14 @@ int main() {
     }
 
     if (action == 1) {
-        // Sign Up
+        string username;
+        string password;
+
+        cout << "\nEnter your username: ";
+        cin >> username;
+
+        cout << "\nEnter your password: ";
+        cin >> password;
     }
     else if (action == 2) {
         // Log In
