@@ -28,9 +28,9 @@ int main() {
 
     string action;
 
-    cout << "Welcome to the Basic Website!\n";
+    cout << "\nWelcome to the Basic Website!\n\n";
 
-    cout << "What do you want to do?\n1. Sign Up\n2. Log In\n";
+    cout << "What do you want to do?\n1. Sign Up\n2. Log In\nAnswer: ";
 
     cin >> action;
 }
