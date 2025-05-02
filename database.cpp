@@ -1,7 +1,10 @@
 #include <iostream>
-#include "base64.hpp"
 
 using namespace std;
+
+void add() {
+
+}
 
 int main() {
     /* Algorithm
