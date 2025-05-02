@@ -4,9 +4,9 @@ using namespace std;
 
 void add(string username, string password) {
     for (int index = 0; index < password.length(); index++) {
-        char character = password[index];
-        cout << character;
-        cout << "\n";
+        char character = password[index]; // retrieve password characters
+        
+        int dec = (int)character; // ASCII to decimal conversion
     }
 }
 
