@@ -3,7 +3,11 @@
 using namespace std;
 
 void add(string username, string password) {
-
+    for (int index = 0; index < password.length(); index++) {
+        char character = password[index];
+        cout << character;
+        cout << "\n";
+    }
 }
 
 int main() {
@@ -60,6 +64,8 @@ int main() {
 
         cout << "\nEnter your password: ";
         cin >> password;
+
+        add(username, password);
     }
     else if (action == 2) {
         // Log In
