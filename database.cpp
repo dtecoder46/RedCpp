@@ -7,6 +7,9 @@ void add(string username, string password) {
         char character = password[index]; // retrieve password characters
         
         int dec = (int)character; // ASCII to decimal conversion
+
+        cout << dec;
+        cout << "\n";
     }
 }
 
@@ -23,7 +26,8 @@ int main() {
         Encrypt the password
             Loop over password string to get each character
             Convert characters to decimal
-            Convert decimal to hex
+            Convert from decimal to binary
+            
         Store the username and password in a JSON file
 
     4. Log in
