@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void add() {
+void add(string username, string password) {
 
 }
 
@@ -17,6 +17,9 @@ int main() {
 
         Ask user for username and password
         Encrypt the password
+            Loop over password string to get each character
+            Convert characters to decimal
+            Convert decimal to hex
         Store the username and password in a JSON file
 
     4. Log in
