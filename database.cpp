@@ -8,8 +8,21 @@ void add(string username, string password) {
         
         int dec = (int)character; // ASCII to decimal conversion
 
-        cout << dec;
-        cout << "\n";
+        int p2[8] = {128, 64, 32, 16, 8, 4, 2, 1};
+
+        string bin;
+
+        for (int index2 = 0; index2 < sizeof(p2); index2++) {
+            if (p2[index2] < dec) {
+                bin += "1";
+            }
+            else {
+                bin += "0";
+            }
+        }
+
+        cout << bin;
+        
     }
 }
 
@@ -27,7 +40,9 @@ int main() {
             Loop over password string to get each character
             Convert characters to decimal
             Convert from decimal to binary
-            
+                Make array of powers of 2
+                Loop over array
+                    If power of 2 < base 10, binary digit is 1
         Store the username and password in a JSON file
 
     4. Log in
