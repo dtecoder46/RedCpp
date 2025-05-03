@@ -2,27 +2,30 @@
 
 using namespace std;
 
+string dec_bin(int dec) {
+    int p2[8] = {128, 64, 32, 16, 8, 4, 2, 1};
+
+    string bin;
+
+    for (int index2 = 0; index2 < sizeof(p2); index2++) {
+        if (p2[index2] < dec) {
+            bin += "1";
+        }
+        else {
+            bin += "0";
+        }
+    }
+    
+    return bin;
+}
+
 void add(string username, string password) {
     for (int index = 0; index < password.length(); index++) {
         char character = password[index]; // retrieve password characters
         
         int dec = (int)character; // ASCII to decimal conversion
-
-        int p2[8] = {128, 64, 32, 16, 8, 4, 2, 1};
-
-        string bin;
-
-        for (int index2 = 0; index2 < sizeof(p2); index2++) {
-            if (p2[index2] < dec) {
-                bin += "1";
-            }
-            else {
-                bin += "0";
-            }
-        }
-
-        cout << bin;
         
+        string bin = dec_bin(dec);
     }
 }
 
