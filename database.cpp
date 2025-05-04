@@ -40,23 +40,15 @@ string dec_bin(int dec) {
 
     for (int index2 = 0; index2 < sizeof(p2)/sizeof(p2[0]); index2++) {
 
-        if (p2[index2] < dec) {
+        if (p2[index2] <= dec) {
             bin += "1";
             dec -= p2[index2];
-
-            cout << "\n";
-            cout << dec;
-            cout << "\n";
         }
         else {
             bin += "0";
         }
 
     }
-    cout << "\n$\n";
-
-    cout << bin;
-    cout << "\n";
 
     return bin;
 }
