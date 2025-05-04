@@ -37,7 +37,11 @@ using namespace std;
         
     */
 
-void dec_hex(int dec) {
+void add(string hex_str, string username) {
+    
+}
+
+void dec_hex(int dec, string username) {
     int p16[4] = {4096, 256, 16, 1};
 
     int hex[4] = {0, 0, 0, 0}; // list for storing the encoded hex password
@@ -60,8 +64,8 @@ void dec_hex(int dec) {
     string hex_digits[6] = {"A", "B", "C", "D", "E", "F"};
 
     for (int index3 = 0; index3 < sizeof(hex)/sizeof(hex[0]); index3++) {
-        if (hex[index3] > 9) {
-            int hex_index = hex[index3] - 10;
+        if (hex[index3] > 9) { // converts hex numbers from 10-15 into proper hex letters
+            int hex_index = hex[index3] - 10; // using the hex number to link the number to the matching hex letter
             hex_str += hex_digits[hex_index];
         }
         else {
@@ -70,13 +74,13 @@ void dec_hex(int dec) {
     }
 }
 
-void add(string username, string password) {
+void ascii_dec(string username, string password) {
     for (int index = 0; index < password.length(); index++) {
         char character = password[index]; // retrieve password characters
         
         int dec = (int)character; // ASCII to decimal conversion
 
-        dec_hex(dec);
+        dec_hex(dec, username);
     }
 }
 
@@ -110,7 +114,7 @@ int main() {
         cout << "\nEnter your password: ";
         cin >> password;
 
-        add(username, password);
+        ascii_dec(username, password);
     }
     else if (action == 2) {
         // Log In
