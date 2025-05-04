@@ -38,12 +38,14 @@ using namespace std;
     */
 
 void hex_process(int hex[4]) {
+    string hex_str;
+
     for (int index3 = 0; index3 < sizeof(hex)/sizeof(hex[0]); index3++) {
         if (hex[index3] > 9) {
 
         }
         else {
-            
+            hex_str += to_string(hex[index3]);
         }
     }
 }
