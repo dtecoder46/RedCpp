@@ -37,14 +37,14 @@ using namespace std;
 void dec_hex(int dec) {
     int p16[4] = {4096, 256, 16, 1};
 
-    int hex[4] = {0, 0, 0, 0};
+    int hex[4] = {0, 0, 0, 0}; // list for storing the encoded hex password
 
-    for (int index2 = 0; index2 < sizeof(p16)/sizeof(p16[0]); index2++) {
+    for (int index2 = 0; index2 < sizeof(p16)/sizeof(p16[0]); index2++) { // iterating over the powers of 16 array
 
         if (p16[index2] <= dec) {
-            int hex_digit = floor(dec/p16[index2]);
-            hex[index2] = hex_digit;
-            dec -= p16[index2] * hex_digit;
+            int hex_digit = floor(dec/p16[index2]); // how many times the power of 16 goes into the base 10 number
+            hex[index2] = hex_digit; // store hex digit into the array
+            dec -= p16[index2] * hex_digit; // decrement the original base 10 number
         }
         else {
             hex[index2] = 0;
@@ -61,9 +61,6 @@ void add(string username, string password) {
         char character = password[index]; // retrieve password characters
         
         int dec = (int)character; // ASCII to decimal conversion
-
-        cout << "\n";
-        cout << dec;
         
         dec_hex(dec);
     }
