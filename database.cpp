@@ -2,35 +2,7 @@
 
 using namespace std;
 
-string dec_bin(int dec) {
-    int p2[8] = {128, 64, 32, 16, 8, 4, 2, 1};
-
-    string bin;
-
-    for (int index2 = 0; index2 < sizeof(p2); index2++) {
-        if (p2[index2] < dec) {
-            bin += "1";
-        }
-        else {
-            bin += "0";
-        }
-    }
-    
-    return bin;
-}
-
-void add(string username, string password) {
-    for (int index = 0; index < password.length(); index++) {
-        char character = password[index]; // retrieve password characters
-        
-        int dec = (int)character; // ASCII to decimal conversion
-        
-        string bin = dec_bin(dec);
-    }
-}
-
-int main() {
-    /* Algorithm
+/* Algorithm
 
     1. Ask the user if they want to sign up or log in
 
@@ -46,6 +18,9 @@ int main() {
                 Make array of powers of 2
                 Loop over array
                     If power of 2 < base 10, binary digit is 1
+            Convert from binary to smaller decimal
+                Divide the 32-bit sequence into chunks of 4 bits, put into array
+                    Convert each 4-bit sequence into a decimal number
         Store the username and password in a JSON file
 
     4. Log in
@@ -58,6 +33,43 @@ int main() {
         If they match, give successful log in message
         
     */
+
+string dec_bin(int dec) {
+    int p2[8] = {128, 64, 32, 16, 8, 4, 2, 1};
+
+    string bin;
+
+    for (int index2 = 0; index2 < sizeof(p2); index2++) {
+        if (p2[index2] < dec) {
+            bin += "1";
+            dec -= p2[index2];
+        }
+        else {
+            bin += "0";
+        }
+    }
+    cout << "$";
+    
+    cout << dec;
+    cout << "\n";
+
+    cout << bin;
+    cout << "\n";
+
+    return bin;
+}
+
+void add(string username, string password) {
+    for (int index = 0; index < password.length(); index++) {
+        char character = password[index]; // retrieve password characters
+        
+        int dec = (int)character; // ASCII to decimal conversion
+        
+        string bin = dec_bin(dec);
+    }
+}
+
+int main() {
 
     int action;
 
