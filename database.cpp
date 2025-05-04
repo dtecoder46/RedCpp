@@ -17,7 +17,8 @@ using namespace std;
             Convert from decimal to hexadecimal
                 Make array of powers of 16
                 Loop over array
-                    If power of 16 < base 10, hex digit is the remainder of the base 10 divided by the power of 16
+                    If power of 16 <= base 10, hex digit is the base 10 divided by the power of 16, excluding decimals
+                        Round down the division result
                     Subtract (power of 16 * remainder) from the decimal number
                     Repeat with the other powers
         Store the username and password in a JSON file
@@ -33,24 +34,26 @@ using namespace std;
         
     */
 
-string dec_bin(int dec) {
-    int p2[8] = {128, 64, 32, 16, 8, 4, 2, 1};
+string dec_hex(int dec) {
+    int p16[4] = {4096, 256, 16, 1};
 
-    string bin;
+    string hex;
 
-    for (int index2 = 0; index2 < sizeof(p2)/sizeof(p2[0]); index2++) {
+    for (int index2 = 0; index2 < sizeof(p16)/sizeof(p16[0]); index2++) {
 
-        if (p2[index2] <= dec) {
-            bin += "1";
-            dec -= p2[index2];
+        if (p16[index2] <= dec) {
+            int hex_remainder = dec % p16[index2];
+            int hex_digit = floor(dec/p16[index2]);
+            hex += hex_digit;
+            dec -= p16[index2] * hex_remainder;
         }
         else {
-            bin += "0";
+            hex += "0";
         }
 
     }
 
-    return bin;
+    return hex;
 }
 
 void add(string username, string password) {
@@ -62,7 +65,7 @@ void add(string username, string password) {
         cout << "\n";
         cout << dec;
         
-        string bin = dec_bin(dec);
+        string hex = dec_hex(dec);
     }
 }
 
