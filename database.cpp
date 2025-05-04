@@ -14,12 +14,12 @@ using namespace std;
         Encrypt the password
             Loop over password string to get each character
             Convert characters to decimal
-            Convert from decimal to binary
-                Make array of powers of 2
+            Convert from decimal to hexadecimal
+                Make array of powers of 16
                 Loop over array
-                    If power of 2 < base 10, binary digit is 1
-                    Subtract the power of 2 from the decimal number
-                    Repeat with the other power
+                    If power of 16 < base 10, hex digit is the remainder of the base 10 divided by the power of 16
+                    Subtract (power of 16 * remainder) from the decimal number
+                    Repeat with the other powers
         Store the username and password in a JSON file
 
     4. Log in
