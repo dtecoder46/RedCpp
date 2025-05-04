@@ -37,21 +37,6 @@ using namespace std;
         
     */
 
-void hex_process(int hex[4]) {
-    string hex_str;
-
-    string hex_digits[6] = {"A", "B", "C", "D", "E", "F"};
-
-    for (int index3 = 0; index3 < sizeof(hex)/sizeof(hex[0]); index3++) {
-        if (hex[index3] > 9) {
-
-        }
-        else {
-            hex_str += to_string(hex[index3]);
-        }
-    }
-}
-
 void dec_hex(int dec) {
     int p16[4] = {4096, 256, 16, 1};
 
@@ -70,7 +55,19 @@ void dec_hex(int dec) {
 
     }
 
-    hex_process(hex);
+    string hex_str;
+
+    string hex_digits[6] = {"A", "B", "C", "D", "E", "F"};
+
+    for (int index3 = 0; index3 < sizeof(hex)/sizeof(hex[0]); index3++) {
+        if (hex[index3] > 9) {
+            int hex_index = hex[index3] - 10;
+            hex_str += hex_digits[hex_index];
+        }
+        else {
+            hex_str += to_string(hex[index3]);
+        }
+    }
 }
 
 void add(string username, string password) {
