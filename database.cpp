@@ -34,26 +34,26 @@ using namespace std;
         
     */
 
-string dec_hex(int dec) {
+void dec_hex(int dec) {
     int p16[4] = {4096, 256, 16, 1};
 
-    string hex;
+    int hex[4] = {0, 0, 0, 0};
 
     for (int index2 = 0; index2 < sizeof(p16)/sizeof(p16[0]); index2++) {
 
         if (p16[index2] <= dec) {
-            int hex_remainder = dec % p16[index2];
             int hex_digit = floor(dec/p16[index2]);
-            hex += hex_digit;
-            dec -= p16[index2] * hex_remainder;
+            hex[index2] = hex_digit;
+            dec -= p16[index2] * hex_digit;
         }
         else {
-            hex += "0";
+            hex[index2] = 0;
         }
 
     }
 
-    return hex;
+    cout << "\n";
+    cout << hex[2];
 }
 
 void add(string username, string password) {
@@ -65,7 +65,7 @@ void add(string username, string password) {
         cout << "\n";
         cout << dec;
         
-        string hex = dec_hex(dec);
+        dec_hex(dec);
     }
 }
 
