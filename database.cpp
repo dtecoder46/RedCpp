@@ -18,9 +18,8 @@ using namespace std;
                 Make array of powers of 2
                 Loop over array
                     If power of 2 < base 10, binary digit is 1
-            Convert from binary to smaller decimal
-                Divide the 32-bit sequence into chunks of 4 bits, put into array
-                    Convert each 4-bit sequence into a decimal number
+                    Subtract the power of 2 from the decimal number
+                    Repeat with the other power
         Store the username and password in a JSON file
 
     4. Log in
@@ -39,19 +38,22 @@ string dec_bin(int dec) {
 
     string bin;
 
-    for (int index2 = 0; index2 < sizeof(p2); index2++) {
+    for (int index2 = 0; index2 < sizeof(p2)/sizeof(p2[0]); index2++) {
+
         if (p2[index2] < dec) {
             bin += "1";
             dec -= p2[index2];
+
+            cout << "\n";
+            cout << dec;
+            cout << "\n";
         }
         else {
             bin += "0";
         }
+
     }
-    cout << "$";
-    
-    cout << dec;
-    cout << "\n";
+    cout << "\n$\n";
 
     cout << bin;
     cout << "\n";
@@ -64,6 +66,9 @@ void add(string username, string password) {
         char character = password[index]; // retrieve password characters
         
         int dec = (int)character; // ASCII to decimal conversion
+
+        cout << "\n";
+        cout << dec;
         
         string bin = dec_bin(dec);
     }
