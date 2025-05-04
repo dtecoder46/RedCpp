@@ -21,7 +21,10 @@ using namespace std;
                         Round down the division result
                     Subtract (power of 16 * remainder) from the decimal number
                     Repeat with the other powers
-        Store the username and password in a JSON file
+                Loop over array of hex digits
+                    If digit is greater than 9, convert to corresponding hex letter
+                    Convert all digits into string, add into a string variable
+        Store the username and hex password string in a JSON file
 
     4. Log in
 
@@ -33,6 +36,17 @@ using namespace std;
         If they match, give successful log in message
         
     */
+
+void hex_process(int hex[4]) {
+    for (int index3 = 0; index3 < sizeof(hex)/sizeof(hex[0]); index3++) {
+        if (hex[index3] > 9) {
+
+        }
+        else {
+            
+        }
+    }
+}
 
 void dec_hex(int dec) {
     int p16[4] = {4096, 256, 16, 1};
@@ -52,8 +66,7 @@ void dec_hex(int dec) {
 
     }
 
-    cout << "\n";
-    cout << hex[2];
+    hex_process(hex);
 }
 
 void add(string username, string password) {
@@ -61,7 +74,7 @@ void add(string username, string password) {
         char character = password[index]; // retrieve password characters
         
         int dec = (int)character; // ASCII to decimal conversion
-        
+
         dec_hex(dec);
     }
 }
