@@ -40,6 +40,8 @@ using namespace std;
 void hex_process(int hex[4]) {
     string hex_str;
 
+    string hex_digits[6] = {"A", "B", "C", "D", "E", "F"};
+
     for (int index3 = 0; index3 < sizeof(hex)/sizeof(hex[0]); index3++) {
         if (hex[index3] > 9) {
 
