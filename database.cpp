@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -24,7 +25,9 @@ using namespace std;
                 Loop over array of hex digits
                     If digit is greater than 9, convert to corresponding hex letter
                     Convert all digits into string, add into a string variable
-        Store the username and hex password string in a JSON file
+        Add all the hexadecimal portions into an array
+        Combine all elements of the hex array into one hex string
+        Store the username and hex password string in an XML file
 
     4. Log in
 
@@ -37,11 +40,11 @@ using namespace std;
         
     */
 
-void add(string hex_str, string username) {
-    
+void combine(string hex_str, string username, string hex_combined) {
+    hex_combined += hex_str;
 }
 
-void dec_hex(int dec, string username) {
+void dec_hex(int dec, string username, string hex_combined) {
     int p16[4] = {4096, 256, 16, 1};
 
     int hex[4] = {0, 0, 0, 0}; // list for storing the encoded hex password
@@ -72,15 +75,19 @@ void dec_hex(int dec, string username) {
             hex_str += to_string(hex[index3]);
         }
     }
+    
+    combine(hex_str, username, hex_combined);
 }
 
 void ascii_dec(string username, string password) {
+    string hex_combined;
+
     for (int index = 0; index < password.length(); index++) {
         char character = password[index]; // retrieve password characters
         
         int dec = (int)character; // ASCII to decimal conversion
 
-        dec_hex(dec, username);
+        dec_hex(dec, username, hex_combined);
     }
 }
 
